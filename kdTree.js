@@ -1,8 +1,8 @@
 const c = document.getElementById("canvas");
 const w = c.width = 72;
 const h = c.height= 72;
-const colors = [[0,248,24], [0,0,224]];
-const getR = () => colors[Math.round((Math.random()))];
+const colors = [[248,0,0],[0,248,0], [0,0,248]];
+const getR = () => colors[Math.floor((Math.random() * 3))];
 const toRGBA = (rgba) => `rgba(${rgba[0]}, ${rgba[1]}, ${rgba[2]}, 1)`;
 const ctx = c.getContext("2d");
 const points = [];
@@ -26,7 +26,7 @@ for (let i = 0; i < w; i++) {
         }
 
         ctx.fillStyle = toRGBA(color);
-        ctx.fillRect(i,y,1,1);
+        ctx.fillRect(i, y, 1, 1);
 
         row.push(color);
     }
